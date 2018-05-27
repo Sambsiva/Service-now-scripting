@@ -1,0 +1,30 @@
+//Title:client script for doing calcultions on form level when changing the form
+
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   //Type appropriate comment here, and begin script below
+	
+	var value1,value2;
+	
+	value1=parseInt(g_form.getValue('u_value1'));
+	
+	value2=parseInt(g_form.getValue('u_value_2'));
+	
+	if(g_form.getValue('u_multiplication')=='true')
+		
+		{
+		var result=(value1*value2);
+			
+		g_form.setValue('u_result',result);
+			
+		}
+	else
+		{
+			g_form.clearValue('u_result');
+		}
+   
+}
