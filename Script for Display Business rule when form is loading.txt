@@ -1,0 +1,27 @@
+
+Title : Passing script from server side to client side then execute on form using BR and Client script
+
+//Server side script for display business rule
+(function executeRule(current, previous /*null when async*/) {
+  // Add your code here
+	g_scratchpad.urgc = current.urgency;//in current form 'urgency' field is assigned to var urgc
+        g_scratchpad.desc = "today is sunday";//short discription
+
+})(current, previous);
+
+
+
+
+
+//Cient side script (it will take value from server side and finally applied on form)
+function onLoad() {}
+   //Type appropriate comment here, and begin script below
+   
+   g_form.setValue('short_description',g_scratchpad.desc); //it will set short discription from business rule script
+   var srinivas = g_scratchpad.urgc; //it will take urjency value from business rule script
+   alert('srinivas' + srinivas);
+   if(srinivas =='3')  //condition
+  {
+   g_form.setMandatory('assignment_group',true); //for making field mandatory
+   g_form.setMandatory('assigned_to',true);  //for making field mandatory
+}
