@@ -1,0 +1,17 @@
+//Title : assigning default values use before business rule on current record
+
+
+(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	current.short_description='this my first business rule adding from script';
+	current.category='Hardware';
+	current.contact_type='Email';
+	current.assignment_group='database';
+	current.assigned_to='ITIL USer';
+	current.caller_id='venkey venkey';
+    current.insert();
+	gs.addInfoMessage('I am displaying the vlaue of priority from gs.addinfo msg' + current.priority);
+gs.log('I am displaying the vlaue of priority from gs.log msg' + current.priority);
+	gs.print('I am displaying from gs.print ' + 'priority'+current.priority);
+})(current, previous);
