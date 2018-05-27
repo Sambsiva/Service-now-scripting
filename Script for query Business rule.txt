@@ -1,0 +1,10 @@
+//Title: Script for Query Business rule when impesnating any user on current record
+
+
+(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	var userid=gs.getUserID();//it will take to get user id and assinging var
+	current.addQuery("caller_id",userid); //it will take to assign a caller on current record
+
+})(current, previous);
