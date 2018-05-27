@@ -1,0 +1,22 @@
+
+
+
+//Title:for creating problem from incident table
+
+
+var gr = new GlideRecord('problem');
+        gr.initialize();
+        gr.business_service = current.business_service ;
+     gr.cmdb_ci =current.cmdb_ci;
+  gr.u_category=current.category;
+  gr.u_subcategory=current.subcategory;
+     gr.short_description=current.short_description;
+  gr.contact_type=current.contact_type;
+  gr.impact=current.impact;
+     gr.urgency=current.urgency;
+  gr.priority=current.priority;
+       gr.description = current.description;
+       var sysid = gr.insert();  //8d342e74db5ad300f41a54c0cf961981
+       gs.log('system id of the record is' + sysid);
+    current.problem_id=sysid;
+    current.update();
