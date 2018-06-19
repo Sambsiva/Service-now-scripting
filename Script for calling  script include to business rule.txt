@@ -1,0 +1,56 @@
+ From Br:
+
+
+(function executeRule(current, previous /*null when async*/) {
+
+ // Add your code here
+ var a = parseInt(current.u_number_1);
+  gs.addInfoMessage('number_1' + a);
+ var b =parseInt(current.u_number_2);
+ gs.addInfoMessage('number_2' +b);
+ var xyz = new SimpleCalc(); // 1133
+ 
+   var abc =xyz.add(a,b);
+ current.u_addition = abc.toString();
+   gs.addInfoMessage('the script include value is ' + abc);
+ gs.log('the script include value is  and executed from business rule' + abc);
+
+
+  Script include :  
+
+var simplecalculation = Class.create();
+simplecalculation.prototype = {
+    initialize: function() {
+    },
+add:function(parm1,parm2)
+{
+ gs.log('Hi i am from script include');
+return parm1+parm2;
+ //return '200';
+},
+type:'simple calculation'
+};
+
+
+
+From Back ground script
+var a =4;
+gs.log('a ' + a);
+var b = 6;
+gs.log('b '+b);
+//var c = a + b ;
+//gs.log(4+5);
+
+//gs.log(c);
+
+
+
+
+var xyz = new SimpleCalc(); // 1133
+
+ var abc =xyz.add(a,b);
+
+gs.log('the script include value is ' + abc);
+
+
+

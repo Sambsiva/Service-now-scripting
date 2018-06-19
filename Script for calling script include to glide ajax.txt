@@ -1,0 +1,39 @@
+script include :ClientSimpleCalc
+add: function()
+{
+ var a = parseInt(this.getParameter('sysparm_parmeter1'));
+ var b = parseInt(this.getParameter('sysparm_parmeter2'));
+      gs.log ('a' + a);
+  gs.log('b'+ b);
+ 
+ c = a+b;
+    return c.toString();
+
+
+
+
+
+
+client script : var ga = new GlideAjax('ClientSimpleCalc');  //Script include name
+     ga.addParam('sysparm_name', 'add');
+     var val1 = parseInt(g_form.getValue('u_number_1'));
+ 
+ // alert('The first number' + val1);
+  
+  var val2 = parseInt(g_form.getValue('u_number_2'));
+ 
+ // alert('The second number' + val2);
+ 
+     ga.addParam('sysparm_parmeter1',val1);
+  ga.addParam('sysparm_parmeter2',val2 );
+     ga.getXML(SimpleAdd);
+ 
+function SimpleAdd(response) {
+ 
+  var answer = response.responseXML.documentElement.getAttribute("answer");
+ 
+  alert('answer' + answer );
+ //var abc =answer.toString();
+ g_form.setValue('u_addition', answer);
+}
+
